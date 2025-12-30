@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/style.css">
+</head>
+<body>
+    <header>
+        <h1>Gestão da Cantina - IFTM</h1>
+        <nav id="menu-principal">
+            <a href="/" class="nav-item">Gestão de Produtos</a>
+            <a href="/financas" class="nav-item">Gestão Financeira</a>
+            <a href="/pedidos" class="nav-item">Pedidos e Carrinho</a>
+            <a href="/relatorio/vendas" class="nav-item">Relatórios</a>
+        </nav>
+    </header>
+
+    <section id="carrinho-compras">
+        <h2>Carrinho de Compras</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Preço Unitário</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{linhasCarrinho}}
+            </tbody>
+        </table>
+        <p><strong>Total do Carrinho: {{totalCarrinho}}</strong></p>
+        <form method="POST" action="/pedido/salvar">
+            <button type="submit">Finalizar Compra</button>
+        </form>
+    </section>
+
+    <section id="list-pedidos">
+        <h2>Pedidos Finalizados</h2>
+        {{mensagem}}
+        <p><a href="/" class="btn-remover">Voltar à Gestão de Produtos</a></p> 
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Descrição</th>
+                    <th>Total</th>
+                    <th>Data Criação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{linhasTabela}} 
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>

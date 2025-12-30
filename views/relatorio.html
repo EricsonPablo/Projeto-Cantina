@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/style.css">
+</head>
+<body>
+    <h1>Relatório de Vendas por Período</h1>
+    
+    <section id="form-filtro">
+        <form action="/relatorio/vendas/filtrar" method="POST">
+            <label for="dataInicio">Data Início:</label>
+            <input type="date" id="dataInicio" name="dataInicio" value="{{dataInicio}}" required>
+            
+            <label for="dataFim">Data Fim:</label>
+            <input type="date" id="dataFim" name="dataFim" value="{{dataFim}}" required>
+            
+            <button type="submit">Filtrar</button>
+        </form>
+    </section>
+
+    <hr>
+
+    <section id="resultados">
+        <h3>Resultados do Filtro</h3>
+        <p style="font-weight: bold;">{{mensagem}}</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Pedido</th>
+                    <th>Valor Total</th>
+                    <th>Descrição</th>
+                    <th>Data Criação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{listaResultados}}
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>

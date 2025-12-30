@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/style.css">
+</head>
+<body>
+    <header>
+        <h1>Gestão da Cantina - IFTM</h1>
+
+        <button id="botaoL">Login</button>
+
+        <nav id="menu-principal">
+            <a href="/" class="nav-item">Gestão de Produtos</a>
+            <a href="/financas" class="nav-item">Gestão Financeira</a>
+            <a href="/pedidos" class="nav-item">Pedidos e Carrinho</a>
+            <!-- <a href="/relatorio" class="nav-item">Relatórios</a> -->
+        </nav>
+    </header>
+
+    <section id="login" class="container">
+        <h2>Tela de login</h2>
+        <form id="conteudo-login">
+            <label for="id-user">ID</label>
+            <input type="number" id="id-user" required>
+
+            <label for="nome-user">Nome:</label>
+            <input type="text" id="nome-user" required>
+
+            <label for="cpf-user">CPF:</label>
+            <input type="number" id="cpf-user" required>
+
+            <label for="login-user">Login:</label>
+            <input type="text" id="login-user" required>
+            
+            <label for="login-password">Senha:</label>
+            <input type="password" id="login-password" required>
+            
+            <button type="submit">Logar</button>
+            <button type="button" id="botaoFechar">Fechar</button>
+        </form>
+    </section>
+
+    <h2>CRUD de Produtos</h2>
+
+    <section id="add-produto">
+        <p>{{botaoVoltar}}</p> 
+        <h2>{{tituloForm}}</h2>
+
+        <form id="form-produto" action="{{actionForm}}" method="POST">
+            
+            <label for="id">ID</label>
+            <input type="hidden" id="id" name="id" value="{{itemId}}"> 
+            
+            <label for="nome_produto">Nome do Produto:</label>
+            <input type="text" id="nome_produto" name="nome" value="{{itemNome}}" required>
+
+            <label for="preco">Preço:</label>
+            <input type="number" step="0.01" id="preco" name="preco" value="{{itemPreco}}" required>
+
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" name="descricao">{{itemDescricao}}</textarea>
+            
+            <button type="submit">Salvar Produto</button>
+        </form>
+    </section>
+
+    <section id="list-products">
+        <h3>Lista de Produtos</h3>
+        <table>
+            <tbody>
+                <tr>
+                    <td class="top-center">ID</td>
+                    <td class="top-center">Nome</td>
+                    <td class="top-center">Preço</td>
+                    <td class="top-center">Ações</td>
+                    <td class="top-center">Descrição</td>
+                </tr>
+            </tbody>
+            <tbody id="lista-produtos">
+                {{listaProdutos}}
+            </tbody>
+        </table>
+    </section>
+
+    <script src="/public/js.js"></script>
+</body>
+</html>
